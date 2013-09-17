@@ -1,0 +1,15 @@
+{
+    "contents" : "Circles and Squares In-Class Activity\n===============================================\n\n```{r}\nplot(1:2, type=\"n\", xlim=c(0,100), ylim=c(0,100))\npolygon(c(19,41,41,19), c(38,38,63,63), col=\"Blue\")\npolygon(c(20,40,40,20), c(39,39,62,62), col=\"Green\")\npolygon(c(27,40,40,27), c(19,19,32,32), col=\"red\")\npolygon(c(57,73,77,65,53), c(43,43,60,69,60), col=\"yellow\", border=NA)\ncircle<- function(x,y,r,...) {\n  angs <- seq(0,2*pi, length=20)\n  xpts <- -x+r*cos(angs)\n  ypts <- -y+r*sin(angs)\n  polygon(xpts,ypts,)\n```\n",
+    "created" : 1379443143591.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3919308771",
+    "id" : "252E71B3",
+    "lastKnownWriteTime" : 1379444027,
+    "path" : "~/CS121-Work/Day-03/Circles and Squares.Rmd",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}
