@@ -1,6 +1,4 @@
-Front Page
+My Front Page
 ========================================================
 
-Hello, World. How are you? 
 
-And I've made a change 
