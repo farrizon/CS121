@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title></title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1></h1>
+
+<p>Exercises on Functions</p>
+
+<p>These are functions that are not really of much use, but give you some practice in writing functions.</p>
+
+<p>Sums of numbers</p>
+
+<p>Write the following functions and, for each one, show that your function produces the correct answer.</p>
+
+<p>How many are odd</p>
+
+<p>Many operators work in a natural way on arrays. An example is %% which will calculate the remainder of division. For instance,</p>
+
+<p>x &lt;- 1:9
+x %% 2 # also gives an array</p>
+
+<h2>[1] 1 0 1 0 1 0 1 0 1</h2>
+
+<p>sum(x%%2)</p>
+
+<h2>[1] 5</h2>
+
+<p>Write a function countOdds() that takes an array of numbers as an input and returns the number of odd ones. Make sure to use the name countOdds for your function.</p>
+
+<h1>Your function here</h1>
+
+<p>It should work like this:</p>
+
+<p>countOdds( 1:9 )</p>
+
+<h2>[1] 5</h2>
+
+<p>countOdds(c(3,5,7))</p>
+
+<h2>[1] 3</h2>
+
+<p>countOdds(c(3,5,7,6,2,0))</p>
+
+<h2>[1] 3</h2>
+
+<p>How many are even</p>
+
+<p>Write a function countEvens() that takes an array of numbers as the input and returns the number of even numbers. One algorithm is to figure out how many odds there are, and subtract that from the count of numbers. A third algorithm involves comparing x%%2 to a different number, e.g. x%%2 == 0. Still another algorithm builds on changing x (Hint: Look at (1+x)%%2 and at 1+x%%2.) Do what you like.</p>
+
+<h1>Your function here</h1>
+
+<p>Test your function to demonstrate that it works</p>
+
+<p>Triangles.</p>
+
+<p>Pythagoras</p>
+
+<p>Write a function hypotenuseLength() that takes two arguments, a and b specifying the length of the sides of a right triangle. Return the length of the hypotenuse of the triangle. Use the Pythagorean Theorem!</p>
+
+<h1>Your function here</h1>
+
+<p>Test your function to make sure it satisfies the following tests:</p>
+
+<p>hypotenuseLength(3,4)</p>
+
+<h2>[1] 5</h2>
+
+<p>hypotenuseLength(13,84)</p>
+
+<h2>[1] 85</h2>
+
+<p>Law of Cosines</p>
+
+<p>The law of cosines is a generalization of the Pythagorean Theorem. It says that the length of the third size of a triangle is a function of the lengths of the other two sides a and b and the angle between them θ.
+c2=a2+b2−2abcos(θ)
+You can use the R cos() function which, like the software in most scientific packages, takes θ in radians.</p>
+
+<p>Write a function lawOfCosines() that takes three arguments, a, b, and theta and returns the length of side c.</p>
+
+<h1>Your function here</h1>
+
+<p>A partial test of your function is whether it works for a right triangle and for a triangle that&#39;s collapsed to a line:</p>
+
+<p>lawOfCosines(13,84,pi/2) # right triangle</p>
+
+<h2>[1] 85</h2>
+
+<p>lawOfCosines(13,84,0) # collapsed with theta=0</p>
+
+<h2>[1] 71</h2>
+
+<p>You can also test it partially with an equilateral triangle:</p>
+
+<p>lawOfCosines(5,5,pi/3)</p>
+
+<h2>[1] 5</h2>
+
+<p>Find the angle</p>
+
+<p>With paper and pencil, solve the law of cosines for the angle θ in terms of a, b, and c. It&#39;s pretty easy. Use your solution to implement a function thetaFromLengths() that takes three arguments, a, b and c and returns the corresponding θ. (Hint: there is an R function acos() that gives the inverse cosine (a.k.a. “arccos” or cos−1.)</p>
+
+<h1>Your function here</h1>
+
+<p>Test it on some inputs for which you know the answer, e.g.</p>
+
+<p>thetaFromLengths(3,4,5) # should be pi/2</p>
+
+<h2>[1] 1.571</h2>
+
+<p>Test thetaFromLengths()</p>
+
+<p>Now that you have both lawOfCosines() and thetaFromLengths(), write a function called thetaFromLengthsTest() that takes a, b and theta as arguments, computes c using your lawOfCosines(), then compares the result of thetaFromLengths(a,b,c) to theta, returning the difference between them.</p>
+
+<h1>Your function here</h1>
+
+<p>Graphics</p>
+
+<p>Write a function canvas() that takes a vector of two numbers to draw a blank canvas on that scale. Your canvas() function can be written using the built-in plot(). A description of some plotting arguments is here.</p>
+
+<h1>Your function here</h1>
+
+<p>Write a function drawCircle() that takes a center and radius and a color and adds the filled circle to the current canvas. Use border=NULL as a default argument.</p>
+
+<h1>Your function here</h1>
+
+<p>Modify drawCircle() so that it takes &hellip; as an argument and passes this on to the basic drawing commands (e.g., polygon()). That way you can “automatically” use all the optional arguments to polygon() like border width, color, etc.</p>
+
+<h1>Your modified function here</h1>
+
+<p>Draw some overlaping circles.</p>
+
+<h1>Your drawing here</h1>
+
+<p>Draw the Olympic logo.</p>
+
+<h1>Your commands for drawing the Olympic logo</h1>
+
+</body>
+
+</html>
+
