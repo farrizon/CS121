@@ -11,11 +11,27 @@ countOdds <- function(x) {
     }
     return(k)
 }
-countOdds(c(3, 5))
+countOdds(1:9)
 ```
 
 ```
-## [1] 2
+## [1] 5
+```
+
+```r
+countOdds(c(3, 5, 7))
+```
+
+```
+## [1] 3
+```
+
+```r
+countOdds(c(3, 5, 7, 6, 2, 0))
+```
+
+```
+## [1] 3
 ```
 
 
@@ -49,14 +65,21 @@ hypotenuseLength(3, 4)
 ## [1] 25
 ```
 
+```r
+hypotenuseLength(13, 84)
+```
+
+```
+## [1] 7225
+```
+
 
 
 ```r
 lawOfCosines <- function(a, b, theta) {
-    x <- a^2 + b^2
-    y <- -2 * a * b * cos(theta)
-    h <- sqrt(x - y)
-    return(h)
+    x <- a^2 + b^2 - 2 * a * b * cos(theta)
+    y <- sqrt(x)
+    return(y)
 }
 lawOfCosines(13, 84, pi/2)
 ```
@@ -64,6 +87,23 @@ lawOfCosines(13, 84, pi/2)
 ```
 ## [1] 85
 ```
+
+```r
+lawOfCosines(13, 84, 0)
+```
+
+```
+## [1] 71
+```
+
+```r
+lawOfCosines(5, 5, pi/3)
+```
+
+```
+## [1] 5
+```
+
 
 
 

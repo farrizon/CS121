@@ -70,5 +70,13 @@ thetaFromLengthsTest<- function(a,b,theta){
 thetaFromLengthsTest(13,84,pi/2)
 ```
 
+```{r}
+canvas<- function(x:y)){
+  h<-plot(x:y, type="n", xlim=c(0,100), ylim=c(0,100), xaxt="n", yaxt="n", xlab="", ylab="")
+  return(h)
+}
+canvas(4:4)
+  
+```
 
 
