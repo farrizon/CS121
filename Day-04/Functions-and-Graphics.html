@@ -188,10 +188,22 @@ hljs.initHighlightingOnLoad();
     }
     return(k)
 }
-countOdds(c(3, 5))
+countOdds(1:9)
 </code></pre>
 
-<pre><code>## [1] 2
+<pre><code>## [1] 5
+</code></pre>
+
+<pre><code class="r">countOdds(c(3, 5, 7))
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<pre><code class="r">countOdds(c(3, 5, 7, 6, 2, 0))
+</code></pre>
+
+<pre><code>## [1] 3
 </code></pre>
 
 <pre><code class="r">countEvens &lt;- function(x) {
@@ -218,16 +230,33 @@ hypotenuseLength(3, 4)
 <pre><code>## [1] 25
 </code></pre>
 
+<pre><code class="r">hypotenuseLength(13, 84)
+</code></pre>
+
+<pre><code>## [1] 7225
+</code></pre>
+
 <pre><code class="r">lawOfCosines &lt;- function(a, b, theta) {
-    x &lt;- a^2 + b^2
-    y &lt;- -2 * a * b * cos(theta)
-    h &lt;- sqrt(x - y)
-    return(h)
+    x &lt;- a^2 + b^2 - 2 * a * b * cos(theta)
+    y &lt;- sqrt(x)
+    return(y)
 }
 lawOfCosines(13, 84, pi/2)
 </code></pre>
 
 <pre><code>## [1] 85
+</code></pre>
+
+<pre><code class="r">lawOfCosines(13, 84, 0)
+</code></pre>
+
+<pre><code>## [1] 71
+</code></pre>
+
+<pre><code class="r">lawOfCosines(5, 5, pi/3)
+</code></pre>
+
+<pre><code>## [1] 5
 </code></pre>
 
 <pre><code class="r">theatFromLengths &lt;- function(a, b, c) {
