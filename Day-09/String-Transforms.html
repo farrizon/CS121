@@ -203,7 +203,7 @@ reverser(&quot;fabian&quot;)
 scrambler(&quot;macalester&quot;)
 </code></pre>
 
-<pre><code>##  [1] &quot;s&quot; &quot;r&quot; &quot;a&quot; &quot;c&quot; &quot;m&quot; &quot;t&quot; &quot;e&quot; &quot;a&quot; &quot;e&quot; &quot;l&quot;
+<pre><code>##  [1] &quot;r&quot; &quot;m&quot; &quot;s&quot; &quot;a&quot; &quot;t&quot; &quot;e&quot; &quot;a&quot; &quot;l&quot; &quot;e&quot; &quot;c&quot;
 </code></pre>
 
 <h1>Vowel Bleeper</h1>
@@ -244,16 +244,13 @@ sapply(x, FUN = L33t)
 ##  &quot;900d&quot;  &quot;50ur&quot; &quot;h3ll0&quot;
 </code></pre>
 
-<pre><code class="r">
-L33t &lt;- function(input) {
-    sapply(input, FUN = L33t)
+<pre><code class="r">L33tApply &lt;- function(x) {
+    sapply(x, FUN = L33t)
 }
-
 L33t(c(&quot;good&quot;, &quot;sour&quot;))
 </code></pre>
 
-<pre><code>## Error: evaluation nested too deeply: infinite recursion /
-## options(expressions=)?
+<pre><code>## [1] &quot;900d&quot; &quot;50ur&quot;
 </code></pre>
 
 <pre><code class="r">x &lt;- c(&quot;fabian&quot;, &quot;kaplan&quot;)

@@ -29,7 +29,7 @@ scrambler("macalester")
 ```
 
 ```
-##  [1] "s" "r" "a" "c" "m" "t" "e" "a" "e" "l"
+##  [1] "r" "m" "s" "a" "t" "e" "a" "l" "e" "c"
 ```
 
 
@@ -81,19 +81,19 @@ sapply(x, FUN = L33t)
 ##  "900d"  "50ur" "h3ll0"
 ```
 
+
+
 ```r
-
-L33t <- function(input) {
-    sapply(input, FUN = L33t)
+L33tApply <- function(x) {
+    sapply(x, FUN = L33t)
 }
-
 L33t(c("good", "sour"))
 ```
 
 ```
-## Error: evaluation nested too deeply: infinite recursion /
-## options(expressions=)?
+## [1] "900d" "50ur"
 ```
+
 
 
 ```r

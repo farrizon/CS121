@@ -49,13 +49,15 @@ L33t("geography")
 ```{r}
 x <- c("good", "sour", "hello")
 sapply(x, FUN = L33t)
+```
 
-L33t <- function(input) {
-    sapply(input, FUN = L33t)
+```{r}
+L33tApply <- function(x) {
+    sapply(x, FUN = L33t)
 }
-
 L33t(c("good", "sour"))
 ```
+
 ```{r}
 x <- c("fabian", "kaplan")
 sapply(x, FUN = vowelsOut)
