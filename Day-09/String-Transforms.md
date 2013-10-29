@@ -1,4 +1,4 @@
-String Transforms 
+String Transform
 ========================================================
 
 # Reverser
@@ -29,7 +29,7 @@ scrambler("macalester")
 ```
 
 ```
-##  [1] "r" "m" "s" "a" "t" "e" "a" "l" "e" "c"
+##  [1] "t" "s" "e" "l" "a" "r" "a" "m" "c" "e"
 ```
 
 
