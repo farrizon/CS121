@@ -29,7 +29,7 @@ scrambler("macalester")
 ```
 
 ```
-##  [1] "t" "s" "e" "l" "a" "r" "a" "m" "c" "e"
+##  [1] "a" "m" "e" "a" "r" "l" "e" "c" "t" "s"
 ```
 
 
