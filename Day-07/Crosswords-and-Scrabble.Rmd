@@ -2,5 +2,134 @@ Crosswords, Scrabble, and Regular Expressions
 ========================================================
 
 ```{r}
+words <- readLines(url("http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt"))
 
+
+NumOfOneLet <- function(x) {
+    oneLet <- length(grep("^.$", x))
+    return(oneLet)
+}
+NumOfOneLet(words)
+```
+
+```{r}
+NumOfTwoLet <- function(x) {
+    twoLet <- length(grep("^..$", x))
+    return(twoLet)
+}
+NumOfTwoLet(words)
+```
+
+```{r}
+NumOfThreeLet <- function(x) {
+    ThreeLet <- length(grep("^...$", x))
+    return(ThreeLet)
+}
+NumOfThreeLet(words)
+```
+
+```{r}
+words <- readLines(url("http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt"))
+
+longestWords <- function(x) {
+    results <- c()
+    b <- which.max(nchar(x))
+    results <- c(results, x[b])
+    x <- x[-b]
+
+    c <- which.max(nchar(x))
+    results <- c(results, x[c])
+    x <- x[-c]
+
+
+    d <- which.max(nchar(x))
+    results <- c(results, x[d])
+    x <- x[-d]
+
+
+    e <- which.max(nchar(x))
+    results <- c(results, x[e])
+    x <- x[-e]
+    return(results)
+}
+longestWords(words)
+```
+
+```{r}
+startWithA <- function(x) {
+    a <- grep("^a.*", x)
+    return(length(a))
+}
+startWithA(c("abunch", "none", "seven", "ass", "behind", "bro", "crop"))
+```
+
+```{r}
+startWithB <- function(x) {
+    b <- grep("^b.*", x)
+    return(length(b))
+}
+startWithB(c("abunch", "none", "seven", "ass", "behind", "bro", "crop"))
+```
+
+```{r}
+startWithC <- function(x) {
+    c <- grep("^c.*", x)
+    return(length(c))
+}
+startWithC(c("abunch", "none", "seven", "ass", "behind", "bro", "crop"))
+```
+
+```{r}
+v <- c("uoqu", "uquo", "aqao", "uoqoaq", "abcd", "abqgohn", "aqua", "aqaa", 
+    "aaaoaoaoaoaoaoaoquofofofofofof", "ahahahahaqhahahaha")
+qButNoU <- function(x) {
+    a = grep("q[^u]", x)
+    return(v[c(a)])
+}
+qButNoU(v)
+```
+
+```{r}
+v <- (c("a", "bb", "cccc", "dddd", "eeeee"))
+crossword <- function(x) {
+    ans <- grep(x, v)
+    return(v[ans])
+}
+crossword("cc")
+```
+
+```{r}
+words <- readLines(url("http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt"))
+
+crosswordPattern <- function(word, length) {
+    subLength <- rep(".", length)
+    subLength[word] <- names(word)
+    grepSub <- paste("^", paste(subLength, collapse = ""), "$", sep = "")
+    ans <- grep(grepSub, words)
+    return(words[ans])
+}
+crosswordPattern(c(a = 1, b = 2), 7)
+```
+
+```{r}
+scrabble <- function(word) {
+    splitword <- strsplit(word, split = "")[[1]]
+    search <- c()
+    for (k in 1:length(splitword)) {
+        search <- splitword[k]
+        words <- words[grep(search, words)]
+    }
+    results <- c()
+    topword <- c()
+    for (topword in words) {
+        ind <- which.max(nchar(words))
+        topword <- words[ind]
+        words <- words[-ind]
+        results <- c(results, topword)
+        if (length(results) >= 10) 
+            break
+    }
+    return(results)
+}
+scrabble("apple")
 ```
