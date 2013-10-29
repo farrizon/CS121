@@ -180,52 +180,56 @@ hljs.initHighlightingOnLoad();
 <body>
 <h1>Interactig With Loops</h1>
 
-<pre><code class="r">blastoffFor &lt;- function(time) {
-    for (k in length(time):1) cat(k, &quot;&quot;)
-    Sys.sleep(1)
-    k &lt;- k - 1
+<h1>Looping A Launch</h1>
 
-    Sys.sleep(1)
-    cat(&quot;Blastoff!&quot;)
-}
-blastoffFor(5)
-</code></pre>
-
-<pre><code>## 1 Blastoff!
-</code></pre>
-
-<pre><code class="r">blastoffWhile &lt;- function(time) {
+<pre><code class="r">blastOffWhile &lt;- function(time) {
     while (time != 0) {
         Sys.sleep(1)
-        cat(time, &quot;&quot;)
+        cat(time, &quot;\n&quot;)
         time &lt;- time - 1
     }
     Sys.sleep(1)
-    cat(&quot;Blastoff!&quot;)
+    cat(&quot;Blastoff!!&quot;)
 }
-blastoffWhile(5)
+blastOffWhile(5)
 </code></pre>
 
-<pre><code>## 5 4 3 2 1 Blastoff!
+<pre><code>## 5 
+## 4 
+## 3 
+## 2 
+## 1 
+## Blastoff!!
 </code></pre>
 
-<pre><code class="r">blastoffRepeat &lt;- function(time) {
+<pre><code class="r">countdown &lt;- function(time) {
 
-    repeat {
-        cat(time, &quot; &quot;)
-        Sys.sleep(1)
-        time &lt;- time - 1
-        if (time &lt; 1) 
-            break
+    for (k in time:1) {
+        starttime &lt;- Sys.time()
+        system(paste(&quot;say&quot;, k))
+        now &lt;- Sys.time()
+        Sys.sleep(1 - as.numeric(now - starttime))
     }
-
-    Sys.sleep(1)
-    cat(&quot;Blastoff!&quot;)
+    system(&quot;say Blastoff!&quot;)
 }
-blastoffRepeat(5)
+countdown(10)
 </code></pre>
 
-<pre><code>## 5  4  3  2  1  Blastoff!
+<h1>Test Human Response Times</h1>
+
+<pre><code class="r">getData &lt;- function(N) {
+    result &lt;- rep(NA, N)
+    for (k in 1:N) {
+        before &lt;- Sys.time()
+        readline(&quot;Press Return!:&quot;)
+        after &lt;- Sys.time()
+        delay &lt;- as.numeric(after - before)
+        cat(rep(&quot;\n&quot;, 20))
+        result[k] &lt;- delay
+        Sys.sleep(runif(1, min = 1, max = 5))
+    }
+    return(result)
+}
 </code></pre>
 
 </body>

@@ -1,63 +1,62 @@
 Interactig With Loops
 ========================================================
 
+# Looping A Launch
 
 ```r
-blastoffFor <- function(time) {
-    for (k in length(time):1) cat(k, "")
-    Sys.sleep(1)
-    k <- k - 1
-    
-    Sys.sleep(1)
-    cat("Blastoff!")
-}
-blastoffFor(5)
-```
-
-```
-## 1 Blastoff!
-```
-
-
-
-```r
-blastoffWhile <- function(time) {
+blastOffWhile <- function(time) {
     while (time != 0) {
         Sys.sleep(1)
-        cat(time, "")
+        cat(time, "\n")
         time <- time - 1
     }
     Sys.sleep(1)
-    cat("Blastoff!")
+    cat("Blastoff!!")
 }
-blastoffWhile(5)
+blastOffWhile(5)
 ```
 
 ```
-## 5 4 3 2 1 Blastoff!
+## 5 
+## 4 
+## 3 
+## 2 
+## 1 
+## Blastoff!!
 ```
 
 
 
 ```r
-blastoffRepeat <- function(time) {
+countdown <- function(time) {
     
-    repeat {
-        cat(time, " ")
-        Sys.sleep(1)
-        time <- time - 1
-        if (time < 1) 
-            break
+    for (k in time:1) {
+        starttime <- Sys.time()
+        system(paste("say", k))
+        now <- Sys.time()
+        Sys.sleep(1 - as.numeric(now - starttime))
     }
-    
-    Sys.sleep(1)
-    cat("Blastoff!")
+    system("say Blastoff!")
 }
-blastoffRepeat(5)
+countdown(10)
 ```
 
-```
-## 5  4  3  2  1  Blastoff!
-```
 
+# Test Human Response Times
+
+```r
+getData <- function(N) {
+    result <- rep(NA, N)
+    for (k in 1:N) {
+        before <- Sys.time()
+        readline("Press Return!:")
+        after <- Sys.time()
+        delay <- as.numeric(after - before)
+        cat(rep("\n", 20))
+        result[k] <- delay
+        Sys.sleep(runif(1, min = 1, max = 5))
+    }
+    return(result)
+}
+```
 
