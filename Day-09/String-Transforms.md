@@ -1,0 +1,71 @@
+String Transforms
+========================================================
+
+# Reverser
+
+```r
+reverser <- function(x) {
+    newFunc = strsplit(x, split = "")
+    ans = newFunc[[1]][1:nchar(x)]
+    return(rev(ans))
+}
+reverser("fabian")
+```
+
+```
+## [1] "n" "a" "i" "b" "a" "f"
+```
+
+
+# Scrambler
+
+```r
+scrambler <- function(x) {
+    newFunc = strsplit(x, split = "")
+    ans = newFunc[[1]][1:nchar(x)]
+    return(sample(ans))
+}
+scrambler("macalester")
+```
+
+```
+##  [1] "s" "a" "m" "e" "a" "r" "c" "e" "l" "t"
+```
+
+
+# Vowel Bleeper
+
+```r
+vowelsOut <- function(x) {
+    ans = gsub("[aeiou]", "*", x)
+    return(ans)
+}
+vowelsOut("supercalafragalisticexpialadoshus")
+```
+
+```
+## [1] "s*p*rc*l*fr*g*l*st*c*xp**l*d*sh*s"
+```
+
+
+# L33t
+
+
+```r
+L33t <- function(x) {
+    newFunc = gsub("e", "3", x)
+    newFunc1 = gsub("o", "0", newFunc)
+    newFunc2 = gsub("s", "5", newFunc1)
+    newFunc3 = gsub("g", "9", newFunc2)
+    
+    return(newFunc3)
+}
+L33t("geography")
+```
+
+```
+## [1] "9309raphy"
+```
+
+
+
