@@ -44,4 +44,27 @@ L33t <- function(x) {
 L33t("geography")
 ```
 
- 
+# Sets of Words 
+
+```{r}
+x <- c("good", "sour", "hello")
+sapply(x, FUN = L33t)
+
+L33t <- function(input) {
+    sapply(input, FUN = L33t)
+}
+
+L33t(c("good", "sour"))
+```
+```{r}
+x <- c("fabian", "kaplan")
+sapply(x, FUN = vowelsOut)
+
+L33t <- function(input) {
+    sapply(input, FUN = vowelsOut)
+}
+
+L33t(c("fabian", "kaplan"))
+```
+
+

@@ -1,4 +1,4 @@
-String Transforms
+String Transforms 
 ========================================================
 
 # Reverser
@@ -29,7 +29,7 @@ scrambler("macalester")
 ```
 
 ```
-##  [1] "s" "a" "m" "e" "a" "r" "c" "e" "l" "t"
+##  [1] "s" "r" "a" "c" "m" "t" "e" "a" "e" "l"
 ```
 
 
@@ -65,6 +65,59 @@ L33t("geography")
 
 ```
 ## [1] "9309raphy"
+```
+
+
+# Sets of Words 
+
+
+```r
+x <- c("good", "sour", "hello")
+sapply(x, FUN = L33t)
+```
+
+```
+##    good    sour   hello 
+##  "900d"  "50ur" "h3ll0"
+```
+
+```r
+
+L33t <- function(input) {
+    sapply(input, FUN = L33t)
+}
+
+L33t(c("good", "sour"))
+```
+
+```
+## Error: evaluation nested too deeply: infinite recursion /
+## options(expressions=)?
+```
+
+
+```r
+x <- c("fabian", "kaplan")
+sapply(x, FUN = vowelsOut)
+```
+
+```
+##   fabian   kaplan 
+## "f*b**n" "k*pl*n"
+```
+
+```r
+
+L33t <- function(input) {
+    sapply(input, FUN = vowelsOut)
+}
+
+L33t(c("fabian", "kaplan"))
+```
+
+```
+##   fabian   kaplan 
+## "f*b**n" "k*pl*n"
 ```
 
 
