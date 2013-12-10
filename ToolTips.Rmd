@@ -1,16 +1,45 @@
-HuckFinn/ToolTips
-========================================================
 
-```{r}
-formatWord <- function(word, trans, class1) {
-    if (is.na(trans)) 
-        return(word)
-    ans1 <- paste("<span class='", class1, "' ", sep = "")
-    ans2 <- paste(ans1, "title='", trans, "'>", sep = "")
-    ans3 <- paste(ans2, word, "</span>", sep = "")
-    return(ans3)
+
+```{r results='asis'}
+
+formatWord <- function(word,trans,class1){
+  if (is.na(trans))
+    return(word)
+  ans1 <- paste("<span class='",class1,"' ",sep="")
+  ans2 <- paste(ans1, "title='",trans,"'>",sep="")
+  ans3 <- paste(ans2,word,"</span>",sep="")
+return(ans3)
 }
 
-cat(formatWord("hola", "como te va?", class = "holaword"))
+cat(formatWord("Whats up","hey!",class = "skyblue"))
+
+cat(formatWord("The weather","in MN",class="skyblue"),"is","very","cold","outside",
+    formatWord("outside.","-10","hiword"))
 ```
+
+``` {r results='asis'}
+words <- c("Money", "makes", "the", "world", "go", "round", "!"")
+tips <- c("How are you doing?", NA, NA, NA, NA, "Why?", "enthusiasm")
+styles <- c("skyblue", "brown", "skyblue")
+
+formatString <- function(word, tips, styles){
+  results <- c()
+  for (k in 1:length(word)){
+    results[k] <- formatWord(word[k],tips[k],styles[k])
+  }
+  return(cat(results))
+}
+
+formatString(words, tips, styles)
+
+
+
+```
+<style>
+.skyblue {background:skyblue;}
+.brown {background:brown;}
+.blue {background:blue;}
+.bigfont {font:italic 30px serif;}
+</style>
+This <span class='hiword' title='This one!'> set of words </span> has a tool tip. 
 

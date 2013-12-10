@@ -1,8 +1,8 @@
-HuckFinn/ToolTips
-========================================================
+
 
 
 ```r
+
 formatWord <- function(word, trans, class1) {
     if (is.na(trans)) 
         return(word)
@@ -12,11 +12,19 @@ formatWord <- function(word, trans, class1) {
     return(ans3)
 }
 
-cat(formatWord("Hello", "hi there!", class = "hiword"))
+cat(formatWord("Whats up", "hey!", class = "skyblue"))
 ```
 
+<span class='skyblue' title='hey!'>Whats up</span>
+
+```r
+
+cat(formatWord("The weather", "in MN", class = "skyblue"), "is", "very", "cold", 
+    "outside", formatWord("outside.", "-10", "hiword"))
 ```
-## <span class='hiword' title='hi there!'>Hello</span>
-```
+
+<span class='skyblue' title='in MN'>The weather</span> is very cold outside <span class='hiword' title='-10'>outside.</span>
+
+
 
 

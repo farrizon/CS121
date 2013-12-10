@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>HuckFinn/ToolTips</title>
+<title></title>
 
 <style type="text/css">
 body, td {
@@ -178,9 +178,8 @@ hljs.initHighlightingOnLoad();
 </head>
 
 <body>
-<h1>HuckFinn/ToolTips</h1>
-
-<pre><code class="r">formatWord &lt;- function(word, trans, class1) {
+<pre><code class="r">
+formatWord &lt;- function(word, trans, class1) {
     if (is.na(trans)) 
         return(word)
     ans1 &lt;- paste(&quot;&lt;span class=&#39;&quot;, class1, &quot;&#39; &quot;, sep = &quot;&quot;)
@@ -189,11 +188,51 @@ hljs.initHighlightingOnLoad();
     return(ans3)
 }
 
-cat(formatWord(&quot;Hello&quot;, &quot;hi there!&quot;, class = &quot;hiword&quot;))
+cat(formatWord(&quot;Whats up&quot;, &quot;hey!&quot;, class = &quot;hiword&quot;))
 </code></pre>
 
-<pre><code>## &lt;span class=&#39;hiword&#39; title=&#39;hi there!&#39;&gt;Hello&lt;/span&gt;
+<p><span class='hiword' title='hey!'>Whats up</span></p>
+
+<pre><code class="r">
+cat(formatWord(&quot;The weather&quot;, &quot;in MN&quot;, class = &quot;hiword&quot;), &quot;is&quot;, &quot;very&quot;, &quot;cold&quot;, 
+    &quot;outside&quot;, formatWord(&quot;outside.&quot;, &quot;-10&quot;, &quot;hiword&quot;))
 </code></pre>
+
+<p><span class='hiword' title='in MN'>The weather</span> is very cold outside <span class='hiword' title='-10'>outside.</span></p>
+
+<pre><code class="r">words &lt;- c(&quot;How&quot;, &quot;now&quot;, &quot;brown&quot;, &quot;cow&quot;, &quot;!&quot;)
+tips &lt;- c(&quot;How are you doing?&quot;, NA, &quot;Why brown?&quot;, &quot;bovine&quot;, &quot;enthusiasm&quot;)
+styles &lt;- c(&quot;hiword&quot;, &quot;&quot;, &quot;brown&quot;, &quot;blue&quot;, &quot;hiword&quot;)
+
+formatString &lt;- function(word, tips, styles) {
+    results &lt;- c()
+    for (k in 1:length(word)) {
+        results[k] &lt;- formatWord(word[k], tips[k], styles[k])
+    }
+    return(cat(results))
+}
+
+formatString(words, tips, styles)
+</code></pre>
+
+<p><span class='hiword' title='How are you doing?'>How</span> now <span class='brown' title='Why brown?'>brown</span> <span class='blue' title='bovine'>cow</span> <span class='hiword' title='enthusiasm'>!</span></p>
+
+<pre><code class="r">
+formatString(c(&quot;How&quot;, &quot;now&quot;, &quot;brown&quot;, &quot;cow&quot;, &quot;!&quot;, &quot;When&quot;), c(&quot;How are you doing?&quot;, 
+    NA, &quot;Why brown?&quot;, &quot;bovine&quot;, &quot;enthusiasm&quot;, &quot;Fancy Font&quot;), c(&quot;hiword&quot;, &quot;&quot;, 
+    &quot;brown&quot;, &quot;blue&quot;, &quot;hiword&quot;, &quot;bigfont&quot;))
+</code></pre>
+
+<p><span class='hiword' title='How are you doing?'>How</span> now <span class='brown' title='Why brown?'>brown</span> <span class='blue' title='bovine'>cow</span> <span class='hiword' title='enthusiasm'>!</span> <span class='bigfont' title='Fancy Font'>When</span></p>
+
+<style>
+.hiword {background:skyblue;}
+.brown {background:brown;}
+.blue {background:blue;}
+.bigfont {font:italic 30px serif;}
+</style>
+
+<p>This <span class='hiword' title='This one!'> set of words </span> has a tool tip. </p>
 
 </body>
 
