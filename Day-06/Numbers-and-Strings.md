@@ -160,47 +160,64 @@ lettersMatch(c("apple", "berry", "carrie", "rr"), "rr")
 
 
 ```r
-piSeries <- function(n) {
-    k <- 1:n
-    sum <- 4 * (1 - (1/k[3]))
-    sum <- sum + (1/k[5])
-    sum <- sum - (1/k[7])
-    sum <- sum + (1/k[9])
-    sum <- sum - (1/k[11])
-    sum <- sum
-    return(sum)
+piseries <- function(k) {
+    signs <- -(-1)^c(1:k)
+    num <- (seq(1, by = 2, length.out = k) * signs)^(-1)
+    sum(4 * num)
+    
 }
-piSeries(4)
+piseries(101)
 ```
 
 ```
-## [1] NA
+## [1] 3.151
 ```
 
 
 
 ```r
-other <- function(n) {
-    sum <- 0
+piseries <- function(k) {
+    signs <- -(-1)^c(1:k)
+    num <- (seq(1, by = 2, length.out = k) * signs)^(-1)
+    sum(4 * num)
+    
+}
+howClosetoPi <- function(n) {
+    ests <- c()
     for (k in 1:n) {
-        sum <- sum + ((-1)^k)
-        if (k%%2 == 0) {
-            k <- k + 1
-        }
-        return(sum)
+        ests <- c(ests, piseries(k))
     }
+    distancefrompi <- ests - pi
+    plot(distancefrompi)
 }
-other(7)
+howClosetoPi(50)
+```
+
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
+
+
+
+```r
+randApproxtoPi <- function(n) {
+    x <- runif(n)
+    y <- runif(n)
+    sd <- x^2 + y^2
+    4 * (length(sd[sd < 1])/length(sd))
+}
+randApproxtoPi(1000)
 ```
 
 ```
-## [1] -1
+## [1] 3.08
 ```
 
 
 
 ```r
-howCloseToPi <- function(n) {
-}
+approxes <- sapply(1:10000, randApproxtoPi)
+plot(approxes, pch = 20, col = rgb(0, 0, 0, 0.4), log = "x")
+lines(c(1, 10000), c(pi, pi), col = "green")
 ```
+
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
 

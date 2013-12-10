@@ -157,5 +157,5 @@ randApproxtoPi(1000)
 ```{r}
 approxes <- sapply(1:10000, randApproxtoPi)
 plot(approxes, pch = 20, col = rgb(0, 0, 0, 0.4), log = "x")
-lines(c(1, 10000), c(pi, pi), col = "green")
+lines(c(1, 10000), c(pi, pi), col = "green") 
 ```
