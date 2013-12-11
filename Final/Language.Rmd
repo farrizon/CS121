@@ -1,0 +1,36 @@
+Final 
+========================================================
+#Incomplete
+
+```{r}
+require(mosaic)
+fetchData("COMP121/word-hints.R")
+
+letterProportion<-function(string){
+  a<-strsplit(string, "")
+  b<-unlist(a, recursive=TRUE, use.names=TRUE)
+  c<-tolower(b,"")  
+  d<-length(c, table(string[[""]]))
+  if(b==c){ 
+  e<-list(d,c("d/c")) 
+ } 
+ return(e)
+  }
+
+freqcompare<-function(e,freq){
+  freq<-table(c(e["English"], e["German"],e["Finish"],e["French"], e["Italian"], e["Spanish"])
+  olfreq<-freq$%
+  dif<-e-olfreq
+  dif<-((dif^2)/olfreq)
+  return(dif)
+}
+
+whichLanguage<-function(string, llfreq){
+  .....
+  dif<-e-olfreq
+  dif<-((dif^2)/olfreq)
+  dif<-min(dif)
+  return(dif)
+  }
+
+```
